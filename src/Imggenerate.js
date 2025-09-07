@@ -62,121 +62,138 @@ export const generateCertificateImage = async (certificateData, role ) => {
     // Define positions and styles for different roles
     const roleConfig = getRoleConfig(role, canvasWidth, canvasHeight);
     
-    // Remove placeholders by drawing white rectangles over them
-    if (roleConfig.placeholderRects) {
-      ctx.fillStyle = '#FFFFFF';
-      Object.values(roleConfig.placeholderRects).forEach(rect => {
-        ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-      });
-    }
-    
-    // Draw name
-    if (data.name || data.studentName) {
+    // Overlay student name (main recipient name)
+    if (data.recipient_name ) {
       ctx.font = roleConfig.nameFont;
       ctx.fillStyle = roleConfig.nameColor;
-      ctx.fillText(data.name || data.studentName, roleConfig.namePosition.x, roleConfig.namePosition.y);
+      ctx.fillText(
+        data.recipient_name, 
+        roleConfig.namePosition.x, 
+        roleConfig.namePosition.y
+      );
     }
     
-    // Draw course name
-    if (data.course || data.courseName) {
+    // Overlay course name
+    if (data.course_title || data.courseName) {
       ctx.font = roleConfig.courseFont;
       ctx.fillStyle = roleConfig.courseColor;
-      ctx.fillText(data.course || data.courseName, roleConfig.coursePosition.x, roleConfig.coursePosition.y);
+      ctx.fillText(
+        data.course_title || data.courseName, 
+        roleConfig.coursePosition.x, 
+        roleConfig.coursePosition.y
+      );
     }
     
-    // Draw date
-    if (data.date || data.issueDate) {
+    // Overlay date
+    if (data.date || data.issued_at) {
       ctx.font = roleConfig.dateFont;
       ctx.fillStyle = roleConfig.dateColor;
-      ctx.fillText(data.date || data.issueDate, roleConfig.datePosition.x, roleConfig.datePosition.y);
+      ctx.fillText(
+        data.date || data.issued_at, 
+        roleConfig.datePosition.x, 
+        roleConfig.datePosition.y
+      );
     }
     
-    // Draw certificate ID
-    if (data.certificateId || data.id) {
+    // Overlay MSN ID
+    if ( data.msn_id) {
       ctx.font = roleConfig.idFont;
       ctx.fillStyle = roleConfig.idColor;
-      ctx.fillText(data.certificateId || data.id, roleConfig.idPosition.x, roleConfig.idPosition.y);
+      ctx.fillText(
+        data.certificateId || data.msn_id, 
+        roleConfig.idPosition.x, 
+        roleConfig.idPosition.y
+      );
     }
     
-    // Draw verification code
-    if (data.verificationCode) {
+    // Overlay verification code
+    if (data.verificationCode || data.code) {
       ctx.font = roleConfig.verificationFont;
       ctx.fillStyle = roleConfig.verificationColor;
-      ctx.fillText(data.verificationCode, roleConfig.verificationPosition.x, roleConfig.verificationPosition.y);
+      ctx.textAlign = 'left';
+      ctx.fillText(
+        data.verificationCode || data.code, 
+        roleConfig.verificationPosition.x, 
+        roleConfig.verificationPosition.y
+      );
     }
   };
   
   // Configuration for different certificate types
-  const getRoleConfig = (role, width, height) => {
+  // Update your getRoleConfig function with these corrected positions:
+
+// Update your getRoleConfig function with these corrected positions:
+
+// Configuration for different certificate types
+const getRoleConfig = (role, width, height) => {
+    // Student certificate configuration
     const studentConfig = {
-      namePosition: { x: width / 2, y: height * 0.42 },
-      coursePosition: { x: width / 2, y: height * 0.52 },
-      datePosition: { x: width / 2, y: height * 0.62 },
-      idPosition: { x: width * 0.82, y: height * 0.12 },
-      verificationPosition: { x: width * 0.12, y: height * 0.88 },
-      nameFont: 'bold 48px "Brush Script MT", cursive',
-      courseFont: 'bold 36px "Brush Script MT", cursive',
-      dateFont: '24px "Brush Script MT", cursive',
-      idFont: '18px Arial',
-      verificationFont: '16px Arial',
-      nameColor: '#000000',
-      courseColor: '#DC2626',
+      // Corrected positions based on the actual certificate template
+      namePosition: { x: width / 2, y: height * 0.42 }, // Overlap with "NAME" placeholder
+      coursePosition: { x: width / 2, y: height * 0.53 }, // Overlap with "COURSE NAME" placeholder  
+      datePosition: { x: width / 2, y: height * 0.65 }, // Overlap with date placeholder
+      idPosition: { x: width * 0.94 , y: height * 0.027 }, // Top right ID area
+      verificationPosition: { x: width * 0.13, y: height * 0.97255 }, // Bottom left verification code
+      
+      // Student-specific fonts and colors
+      nameFont: 'bold 80px Arial',
+      courseFont: 'bold 50px Arial',
+      dateFont: '30px Arial',
+      idFont: '21px Arial',
+      verificationFont: '21px Arial',
+      
+      nameColor: '#000000', // Black for student name
+      courseColor: '#DC2626', // Red for course
       dateColor: '#000000',
       idColor: '#6B7280',
-      verificationColor: '#6B7280',
-      placeholderRects: {
-        namePlaceholder: { x: width * 0.3, y: height * 0.38, width: width * 0.4, height: 60 },
-        coursePlaceholder: { x: width * 0.25, y: height * 0.48, width: width * 0.5, height: 50 },
-        datePlaceholder: { x: width * 0.35, y: height * 0.58, width: width * 0.3, height: 40 }
-      }
+      verificationColor: '#6B7280'
     };
-    
+  
+    // Intern certificate configuration
     const internConfig = {
-      namePosition: { x: width / 2, y: height * 0.40 },
-      coursePosition: { x: width / 2, y: height * 0.50 },
-      datePosition: { x: width / 2, y: height * 0.60 },
-      idPosition: { x: width * 0.85, y: height * 0.10 },
-      verificationPosition: { x: width * 0.10, y: height * 0.90 },
-      nameFont: 'bold 44px "Brush Script MT", cursive',
-      courseFont: 'bold 32px "Brush Script MT", cursive',
-      dateFont: '22px "Brush Script MT", cursive',
-      idFont: '16px Arial',
-      verificationFont: '14px Arial',
-      nameColor: '#000000',
-      courseColor: '#DC2626',
+      namePosition: { x: width / 2, y: height * 0.46 }, // Slightly different position
+      coursePosition: { x: width / 2, y: height * 0.60 }, // Slightly different position
+      datePosition: { x: width / 2, y: height * 0.66 }, // Slightly different position
+      idPosition: { x: width * 0.94, y: height * 0.027 }, // Different ID position
+      verificationPosition: { x: width * 0.125, y: height * 0.0253 }, // Different verification position
+      
+      // Intern-specific fonts and colors
+      nameFont: ' 110px "Brush Script MT", "Lucida Handwriting", cursive, serif',
+      courseFont: 'bold 50px Arial',
+      dateFont: '30px Arial',
+      idFont: '19px Arial',
+      verificationFont: '21px Arial',
+      
+      nameColor: '#DC2626', // RED for intern name
+      courseColor: '#DC2626', // RED for course
       dateColor: '#000000',
       idColor: '#6B7280',
-      verificationColor: '#6B7280',
-      placeholderRects: {
-        namePlaceholder: { x: width * 0.3, y: height * 0.36, width: width * 0.4, height: 55 },
-        coursePlaceholder: { x: width * 0.25, y: height * 0.46, width: width * 0.5, height: 45 },
-        datePlaceholder: { x: width * 0.35, y: height * 0.56, width: width * 0.3, height: 35 }
-      }
+      verificationColor: '#6B7280'
     };
-    
+  
+    // Competitor certificate configuration
     const competitorConfig = {
-      namePosition: { x: width / 2, y: height * 0.44 },
-      coursePosition: { x: width / 2, y: height * 0.54 },
-      datePosition: { x: width / 2, y: height * 0.64 },
-      idPosition: { x: width * 0.80, y: height * 0.14 },
-      verificationPosition: { x: width * 0.14, y: height * 0.86 },
-      nameFont: 'bold 46px "Brush Script MT", cursive',
-      courseFont: 'bold 34px "Brush Script MT", cursive',
-      dateFont: '23px "Brush Script MT", cursive',
-      idFont: '17px Arial',
-      verificationFont: '15px Arial',
-      nameColor: '#000000',
-      courseColor: '#DC2626',
-      dateColor: '#000000',
+      namePosition: { x: width / 2, y: height * 0.48 }, // Different position for competitor
+      coursePosition: { x: width / 2, y: height * 0.62 }, // Different position for competitor
+      datePosition: {x: width * 0.15, y: height * 0.962 }, // Different position for competitor
+      idPosition: { x: width * 0.94, y: height * 0.023 }, // Different ID position
+      verificationPosition: { x: width/1.87, y: height * 0.968 }, // Different verification position
+      
+      // Competitor-specific fonts and colors
+      nameFont: '120px "Brush Script MT", cursive',
+      courseFont: 'bold 50px Arial',
+      dateFont: '26px Arial',
+      idFont: '20px Arial',
+      verificationFont: '18px Arial',
+      
+      nameColor: '#000000', // BLACK for competitor name
+      courseColor: '#000000', // BLACK for course
+      dateColor: '##000000',
       idColor: '#6B7280',
-      verificationColor: '#6B7280',
-      placeholderRects: {
-        namePlaceholder: { x: width * 0.3, y: height * 0.40, width: width * 0.4, height: 58 },
-        coursePlaceholder: { x: width * 0.25, y: height * 0.50, width: width * 0.5, height: 48 },
-        datePlaceholder: { x: width * 0.35, y: height * 0.60, width: width * 0.3, height: 38 }
-      }
+      verificationColor: '#6B7280'
     };
-    
+  
+    // Return the appropriate configuration based on role
     switch (role) {
       case 'student':
         return studentConfig;
@@ -185,7 +202,7 @@ export const generateCertificateImage = async (certificateData, role ) => {
       case 'competetor':
         return competitorConfig;
       default:
-        return studentConfig;
+        return studentConfig; // Default to student config
     }
   };
   
