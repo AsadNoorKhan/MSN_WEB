@@ -7,17 +7,19 @@ import { FiArrowRight } from "react-icons/fi"
 import CourseOfferings from '@/components/CourseOfferings'
 import heroImage from "@/assets/Placeholder_Image.png";
 import HeadHero from '@/components/HeadHero'
+import foot from "@/assets/HomeFoot.png"
+import hslImage from "@/assets/HSL.png"
 
 export default function Home() {
   return (
     <div>
-      <Header_Full title="Empowering Pakistan’s Freelancers & Developers"
+      <Header_Full title="Empowering Pakistan's Freelancers & Developers"
         subtitle="Join our academy today and unlock premium learning tools, expert mentorship, and hands-on projects to put your new skills into action" />
 
       <HeroSection t1="Empower Your Future" t2="with MSN Academy"
         p1="    MSN Academy strives to be a leading nation-building institution,
             equipping individuals with in-demand tech skills, an innovative
-            mindset, and the drive to shape Pakistan’s future and beyond. We
+            mindset, and the drive to shape Pakistan's future and beyond. We
             deliver high-quality, affordable education that bridges the gap
             between academia and industry, producing job-ready professionals
             through hands-on learning, expert mentorship, and real-world
@@ -63,7 +65,7 @@ export default function Home() {
               </button>
             </div>
             <img
-              src="src/assets/HSL.png"
+              src={hslImage}
               alt="Students Learning"
               className="rounded-lg mt-4 w-full h-auto"
             />
@@ -80,7 +82,7 @@ export default function Home() {
       <MTeam_Sec />
 
       <HeadHero h="Start Your Learning Journey Today" p="Join our courses to gain practical skills and boost your career in the digital world."
-      b1="Enroll" b2="Contact" img="src/assets/HomeFoot.png" b1Link="https://forms.gle/c82S9HnVPQCKf1vE8" b2Link='/contact'
+      b1="Enroll" b2="Contact" img={foot} b1Link="https://forms.gle/c82S9HnVPQCKf1vE8" b2Link='/contact'
       />
 
     </div>

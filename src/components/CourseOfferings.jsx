@@ -3,12 +3,13 @@ import { Button } from "@/components/ui/button"
 import { FiArrowRight } from "react-icons/fi"
 import CourseCard from "./CourseCard"
 import { useNavigate } from 'react-router-dom';
+import Banner from "@/assets/Course_banner.png"
 
 export default function  CourseOfferings({FI=false, limit}) {
   const navigate =useNavigate();
   const courses = [
     {
-      image: "/course-banner.png",
+      image: Banner,
       title: "FrontEnd Web dev",
       certificate: "Professional Certificate",
       rating: 4.5,
@@ -17,7 +18,7 @@ export default function  CourseOfferings({FI=false, limit}) {
       demo: "https://youtu.be/JnWlsM5L9u4?si=3rqXeApHffcrtIEk",
     },
     {
-      image: "/course-banner.png",
+      image: Banner,
       title: "MERN Stack Development",
       certificate: "Professional Certificate",
       rating: 4.5,
@@ -26,7 +27,7 @@ export default function  CourseOfferings({FI=false, limit}) {
       demo: "https://youtu.be/nnKKjEyjTUk?si=oLwXn6orm8FYTjBh",
     },
     {
-      image: "/course-banner.png",
+      image: Banner,
       title: "GEN AI and ChatBot",
       certificate: "Professional Certificate",
       rating: 4.5,
@@ -35,7 +36,7 @@ export default function  CourseOfferings({FI=false, limit}) {
       demo: "https://youtu.be/KLGIcMBn45A?si=-NfU81tiXfKnffXP",
     },
     {
-      image: "/course-banner.png",
+      image: Banner,
       title: "Digital Marketing with AI tools",
       certificate: "Professional Certificate",
       rating: 4.5,
@@ -44,7 +45,7 @@ export default function  CourseOfferings({FI=false, limit}) {
       demo: "https://youtu.be/sCBMvTJDEJo?si=NuAJxzQthQJnz1E9",
     },
     {
-      image: "/course-banner.png",
+      image: Banner,
       title: "Data Analytics",
       certificate: "Professional Certificate",
       rating: 4.5,

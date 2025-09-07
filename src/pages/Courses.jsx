@@ -15,7 +15,7 @@ export default function Courses() {
         <CourseOfferings/>
         <DigitalMasterySection/>
         <HeroSection t1="Unlock Your Potential with Personalized Mentorship" p1=" MSN Academy, we believe in the power of personal mentorship and hands-on projects.
-         Our experienced mentors guide you through real-world challenges, ensuring you gain practical skills that employers value" img={FirstHero}/>
+         Our experienced mentors guide you through real-world challenges, ensuring you gain practical skills that employers value" img={FirstHero} />
          <HeroSection t1="Ready to Start Your" t2="Journey ?" p1="Enroll in our courses today and unlock your potential in digital world!" b2={true} b1="Enroll" img={SecondHero} b1Link="https://forms.gle/c82S9HnVPQCKf1vE8"/>
     </div>
   )

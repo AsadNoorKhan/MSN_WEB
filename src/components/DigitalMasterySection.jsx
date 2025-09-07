@@ -1,4 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
+import DM3 from "@/assets/DM3.png"
+import DM2 from "@/assets/DM2.png"
+import DM1 from "@/assets/DM1.png"
 
 
 const features = [
@@ -6,19 +9,19 @@ const features = [
     title: "Interactive Learning Modules for Real-World Skills",
     description:
       "Each course includes hands-on projects to reinforce learning.",
-    image: "src/assets/DM3.png", // replace with your image path
+    image: DM3, // replace with your image path
   },
   {
     title: "Personal Mentorship to Guide Your Journey",
     description:
       "Our experienced mentors provide personalized guidance throughout your learning experience.",
-    image: "src/assets/DM2.png",
+    image: DM2,
   },
   {
     title: "Join a Community of Aspiring Professionals",
     description:
       "Collaborate with peers and industry experts as you learn and grow.",
-    image: "src/assets/DM1.png",
+    image: DM1,
   },
 ]
 

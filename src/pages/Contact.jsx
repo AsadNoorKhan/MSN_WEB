@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header_Full from "@/components/Header_Full";
 import HeadHero from "@/components/HeadHero";
+import contactBg from "@/assets/Contactbg.png";
+import contact2 from "@/assets/Contact2.png";
 
 export default function Contact() {
   return (
@@ -12,7 +14,7 @@ export default function Contact() {
 
       {/* Hero Section */}
       <HeadHero h="Connect With Us" p="Explore how to connect with us for support, collaborations, or any inquiries. 
-            We’re here to help you grow!" img={"src/assets/Contactbg.png"}/>
+            We're here to help you grow!" img={contactBg}/>
 
       {/* Contact Section */}
       <div className="container mx-auto grid gap-8 sm:gap-10 px-4 py-12 sm:py-16 lg:grid-cols-2">
@@ -71,7 +73,7 @@ export default function Contact() {
           </div>
 
           <img
-            src="src/assets/Contact2.png"
+            src={contact2}
             alt="Contact Illustration"
             className="w-full max-w-sm sm:max-w-md self-center"
           />

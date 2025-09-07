@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import logo from '@/assets/logo.png';
 
 const Footer = () => {
     const [email, setEmail] = useState('');
@@ -45,7 +46,7 @@ const Footer = () => {
                     <div className="col-span-1 sm:col-span-2 lg:col-span-1">
                         <div className="flex items-center mb-8">
                             <img
-                                src="src/assets/logo.png"
+                                src={logo}
                                 alt="MSN Academy"
                                 className="h-16 sm:h-20 w-auto"
                             />

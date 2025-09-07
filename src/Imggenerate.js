@@ -1,4 +1,18 @@
 // Certificate Image Generation System
+import studentClean from "@/assets/Certificates_Designs/student_clean.png";
+import internClean from "@/assets/Certificates_Designs/intern_clean.png";
+import competitorClean from "@/assets/Certificates_Designs/competetor_clean.png";
+
+// Helper function to get the correct template image
+const getTemplateImage = (role) => {
+  switch(role) {
+    case 'student': return studentClean;
+    case 'intern': return internClean;
+    case 'competetor': return competitorClean;
+    default: return studentClean;
+  }
+};
+
 export const generateCertificateImage = async (certificateData, role ) => {
     return new Promise((resolve, reject) => {
       try {
@@ -31,7 +45,7 @@ export const generateCertificateImage = async (certificateData, role ) => {
         };
         
         // Load the appropriate certificate template
-        baseImage.src = `src/assets/Certificates_Designs/${role}_clean.png`;
+        baseImage.src = getTemplateImage(role);
         
       } catch (error) {
         reject(error);

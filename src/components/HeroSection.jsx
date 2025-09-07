@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { PlaneIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const HeroSection = ({t1,t2,p1,p2,b2=false,b1="Learn More",img={PlaneIcon},b1Link=""}) => {
+const HeroSection = ({t1,t2,p1,p2,b2=false,b1="Learn More",img=PlaneIcon,b1Link=""}) => {
   return (
     <section className="w-full bg-white py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-12">

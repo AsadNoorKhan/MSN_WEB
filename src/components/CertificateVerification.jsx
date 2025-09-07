@@ -8,6 +8,9 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { CheckCircle, Info, User } from "lucide-react"
 import { getCertificates } from '@/api/getCertificate';
 import { generateCertificateImage } from "@/Imggenerate"
+import student from "@/assets/Certificates_Designs/student.png"
+import intern from "@/assets/Certificates_Designs/intern.png"
+import participant from "@/assets/Certificates_Designs/competetor.png"
 
 export default function CertificateVerification() {
   const [role, setRole] = useState("student")
@@ -147,7 +150,7 @@ export default function CertificateVerification() {
               </>
             ) : (
               <img
-                src={`src/assets/Certificates_Designs/${role}.png`}
+                src={role==="student" ? student : role==="intern" ? intern : participant}
                 alt="Certificate Template"
                 className="rounded-lg shadow w-full"
               />

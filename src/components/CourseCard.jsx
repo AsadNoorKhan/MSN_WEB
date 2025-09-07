@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Star, Award } from "lucide-react"
 import {Link} from "react-router-dom"
-import Banner from "@/assets/Course_banner.png"
+
 
 export default function CourseCard({
   image,
@@ -19,7 +19,7 @@ export default function CourseCard({
       {/* Top image with price */}
       <div className="relative">
         <img
-          src={Banner}
+          src={image}
           alt={title}
           className="w-full h-[180px] object-cover"
         />
